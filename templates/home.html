@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="p-5">
+<div class="contact-form row d-flex flex-row align-items-center">
+        {% csrf_token %}
+    <div class="col-md-4">
+        <!-- <label for="">{{ form.name.label }}</label> -->
+        {{ form.name }}
+        <p id="name_error" style="display:none;"></p>
+    </div>
+    <div class="col-md-4">
+        <!-- <label for="">{{ form.mobile.label }}</label> -->
+        {{ form.mobile }}
+        <p id="number_error" style="display:none;"></p>
+    </div>
+    <div class="col-md-4">
+        <button type="submit" id="add_but" href="javascript:void(0);" data-url="{% url 'main:create_contact' %}" class="btn btn-warning">ADD NUMBER</button>
+    </div>
+</div>
+<div class="message_div text-light mt-5 p-1 text-center" style="display: none;">
+</div>
+<div id="number_list" class="row mt-5">
+    {% include 'contact_list.html' %}
+</div>
+</div>
+{% endblock %}
